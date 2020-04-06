@@ -8,9 +8,24 @@
 		<script src="underscore.js"></script>
 		<script>
 			  
-           console.log(_.sample([1,2,3,4,5,6,7,8,9,10],5));
-		   var shuffleArray = _.shuffle([1,2,3,4,5,6,7,8,9,10]);
-		   console.log(shuffleArray)
+     class Animal { 
+  speak() {
+    return this;
+  }
+  static eat() {
+    return this;
+  }
+}
+
+let obj = new Animal();
+obj.speak(); // Animal {}
+let speak = obj.speak;
+speak(); // undefined
+
+ // Animal {}
+console.log(obj.speak()) // class Animal
+let eat = Animal.eat;
+eat(); // undefined
 		</script>
 	</body>
 </html>

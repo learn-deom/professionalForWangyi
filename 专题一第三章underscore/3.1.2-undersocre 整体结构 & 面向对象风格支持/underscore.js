@@ -1,6 +1,7 @@
 (function(root) {
 	var push = Array.prototype.push;
 	
+
 	var _ = function(obj) {
 		if (obj instanceof _) {
 			return obj;
@@ -11,7 +12,11 @@
 		}
 		this._wrapped = obj;
 	}
-
+var previousUnderscore = root. _ 
+_.noConflict = function() {
+	root._ = previousUnderscore
+	return this;
+}
 	_.unique = function(arr, callback) {
 		var ret = [];
 		var target, i = 0;
@@ -49,6 +54,7 @@
 		}
 		return result;
 	}
+	
 
 	_.map = function(args) {
 		args.push("max");
@@ -61,7 +67,7 @@
 	}
 
 	_.each = function(target, callback) {
-		console.log(target)
+		
 		var key, i = 0;
 		if (_.isArray(target)) {
 			var length = target.length;

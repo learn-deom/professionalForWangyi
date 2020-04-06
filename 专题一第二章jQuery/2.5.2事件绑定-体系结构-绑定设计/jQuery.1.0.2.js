@@ -275,15 +275,17 @@
 			//object  数组对象 || object对象 
 			var length = object.length;
 			var name, i = 0;
-
 			// 自定义callback 参数
 			if (args) {
+				
 				if (length === undefined) {
 					for (name in object) {
 						callback.apply(object, args);
 					}
 				} else {
+
 					for (; i < length;) {
+
 						callback.apply(object[i++], args);
 					}
 				}
@@ -315,6 +317,7 @@
 		key: function(elem) {
 			var descriptor = {},
 				unlock = elem[this.expando];
+			console.log(this.expando)
 
 			if (!unlock) {
 				unlock = Data.uid++;
@@ -388,6 +391,7 @@
 				handler: handler,
 				guid: handler.guid,
 			});
+			console.log(data_priv.cache)
 			//添加事件
 			if (elem.addEventListener) {
 				elem.addEventListener(type, eventHandle, false);
@@ -422,7 +426,7 @@
 				originalEvent = event,
 				fixHook = this.fixHooks[type];
 
-			if (!fixHook) {
+			if (!fixHook ) {
 				this.fixHooks[type] = fixHook =
 					rmouseEvent.test(type) ? this.mouseHooks :
 					rkeyEvent.test(type) ? this.keyHooks : {};
@@ -483,3 +487,7 @@
 
 	root.$ = root.jQuery = jQuery;
 })(this);
+jQuery.extend = function(deep,target,obj){
+	var arg, target,
+
+}
